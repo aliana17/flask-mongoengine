@@ -18,6 +18,10 @@ db = MongoEngine()
 def initialized_db(ap):     // import this function and call it by passing app as an argument in it. 
     db.init_app(ap)
    
+# show databases
+# use db_name 
+# show collections
+
 # Prints out the names of all the users in the database
 for user in User.objects:
     print user.name
@@ -25,4 +29,14 @@ for user in User.objects:
 # Filtering Queries
 This will return a QuerySet that will only iterate over users whose 'country' field is set to 'uk'
 uk_users = User.objects(country='uk')
+
+# To print all documents of a collection we have a find method
+db.collection_name.find({});
+* insert any query in {}
+
+# To remove an document from collection 
+db.collection_name.remove({});
+
+
+
 
