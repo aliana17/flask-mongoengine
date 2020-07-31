@@ -1,0 +1,28 @@
+# Installation
+pip install flask-mongoengine
+
+# Default Port 
+27017
+
+# Configure 
+app.config['MONGODB_SETTINGS'] = {
+    'db': 'website-db',
+    'host': 'mongodb://localhost/website-db'
+}
+
+# Initialize database 
+from flask_mongoengine import MongoEngine
+
+db = MongoEngine()
+
+def initialized_db(ap):     // import this function and call it by passing app as an argument in it. 
+    db.init_app(ap)
+   
+# Prints out the names of all the users in the database
+for user in User.objects:
+    print user.name
+    
+# Filtering Queries
+This will return a QuerySet that will only iterate over users whose 'country' field is set to 'uk'
+uk_users = User.objects(country='uk')
+
